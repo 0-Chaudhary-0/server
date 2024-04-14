@@ -40,16 +40,16 @@ router.post('/login', async (req, res) => {
 
             // JWT Token
             const token = jwt.sign({ email }, "#@chaudhary@#");
-            res.send({
+            res.json({
                 success: true,
                 message: "Successfully Logged In",
                 token: token,
             });
         } else {
-            res.send({ success: false, message: `Invalid Input` });
+            res.json({ success: false, message: `Invalid Input` });
         }
     } else {
-        res.send({ success: false, message: `User Not Found` });
+        res.json({ success: false, message: `User Not Found` });
     }
 })
 
