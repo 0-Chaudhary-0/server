@@ -7,11 +7,7 @@ const app = express()
 
 // create application/json parser
 app.use(bodyParser.json());
-app.use(cors({
-  origin: 'https://ssacademy.vercel.app', // Allow requests from this origin
-  methods: ['GET', 'POST'], // Allow only specific HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allow only specific headers
-}))
+app.use('*',cors());
 
 connectDb()
 
