@@ -26,7 +26,7 @@ router.post('/signup', async (req, res) => {
 
 
 // Login API Is Here
-router.post('/login', async (req, res) => {
+router.post('/signin', async (req, res) => {
     let { email, password } = await req.body;
     let user = await User.findOne({ email });
 
