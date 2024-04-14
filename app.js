@@ -5,9 +5,22 @@ const bodyParser = require("body-parser");
 const port = 3000;
 const app = express()
 
+// Allow requests from specific origins
+const allowedOrigins = ['https://ssacademy.vercel.app'];
+
 // create application/json parser
 app.use(bodyParser.json());
-app.use('*',cors());
+
+app.use(cors({
+    origin: function(origin, callback) {
+        // Check if the origin is allowed, or if it's undefined (e.g., from Postman)
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    }
+}));
 
 connectDb()
 
