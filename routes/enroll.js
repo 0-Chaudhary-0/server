@@ -11,7 +11,7 @@ router.post('/enroll', async (req, res) => {
         student.save()
         res.send({ success: true, message: "Form Successfully Submitted" })
     } catch (error) {
-        res.send({success: false, error: `Failed To Submit: ${error}` })
+        res.send({success: false, message: `Failed To Submit: ${error}` })
     }
 })
 
