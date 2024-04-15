@@ -16,7 +16,6 @@ app.use(
 
 connectDb()
 
-app.use('/api/auth', require('./routes/signin'))
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/student', require('./routes/enroll'))
 
