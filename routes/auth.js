@@ -27,7 +27,8 @@ router.post('/signup', async (req, res) => {
 
 // Login API Is Here
 router.post('/signin', async (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Credentials', true)
+    res.setHeader('Access-Control-Allow-Origin', '*')
     
     let { email, password } = await req.body;
     let user = await User.findOne({ email });
