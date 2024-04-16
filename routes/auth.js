@@ -6,7 +6,8 @@ const router = express.Router()
 
 
 // SignUp API Is Here
-router.post('/signup', async (req, res) => {
+router.post('/signup', (req, res) => {
+    let main = async () =>{ 
     try {
         let { name, email, password } = await req.body
 
@@ -21,6 +22,7 @@ router.post('/signup', async (req, res) => {
         res.send({ success: true, message: "Successfully Created An Account", token: token })
     } catch (error) {
         res.send({success: false, error: `Failed To Create: ${error}` })
+    }
     }
 })
 
