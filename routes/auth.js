@@ -7,6 +7,8 @@ const router = express.Router()
 
 // SignUp API Is Here
 router.post('/signup', (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*"); // Replace '*' with your desired origin
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     let main = async () =>{ 
     try {
         let { name, email, password } = await req.body
