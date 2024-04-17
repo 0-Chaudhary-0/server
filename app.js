@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 const port = 3000;
 const app = express()
 
+connectDb()
+
 // create application/json parser
 app.use(bodyParser.json());
 
@@ -14,7 +16,6 @@ app.use(
   })
 );
 
-connectDb()
 
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/student', require('./routes/enroll'))

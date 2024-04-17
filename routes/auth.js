@@ -6,8 +6,7 @@ const router = express.Router()
 
 
 // SignUp API Is Here
-router.post('/signup', (req, res) => {
-    let main = async () =>{ 
+router.post('/signup', async (req, res) => {
     try {
         let { name, email, password } = await req.body
 
@@ -18,11 +17,10 @@ router.post('/signup', (req, res) => {
         const token = jwt.sign({ email }, "#@chaudhary@#");
 
         let items = new User({ name, email, password: cipherPassword });
-        await items.save()
+        items.save()
         res.send({ success: true, message: "Successfully Created An Account", token: token })
     } catch (error) {
         res.send({success: false, error: `Failed To Create: ${error}` })
-    }
     }
 })
 
