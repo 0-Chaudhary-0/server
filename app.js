@@ -7,7 +7,12 @@ const app = express()
 
 // create application/json parser
 app.use(bodyParser.json());
-app.use(cors())
+
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 connectDb()
 
