@@ -4,6 +4,8 @@ const router = express.Router()
 
 
 router.post('/enroll', async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*"); // Replace '*' with your desired origin
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     try {
         let { name, fathersName, gender, surname, studentWhatsapp, parentWhatsapp, email, address, alreadyStudying, admissionClass } = await req.body
 
