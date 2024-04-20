@@ -17,7 +17,7 @@ router.post('/signup', async (req, res) => {
         const token = jwt.sign({ email }, "#@chaudhary@#");
 
         let items = new User({ name, email, password: cipherPassword });
-        items.save()
+        await items.save()
         res.send({ success: true, message: "Successfully Created An Account", token: token })
     } catch (error) {
         res.send({success: false, error: `Failed To Create: ${error}` })
